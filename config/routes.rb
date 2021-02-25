@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     get "/actor_path" => "actors#actor_action"
   end
+
+  namespace :api do
+    get "/colin_path" => "actors#colin_action"
+  end
 end
