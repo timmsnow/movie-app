@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     get "/colin_path" => "actors#colin_action"
   end
+
+  namespace :api do
+    get "/kermit_path" => "actors#kermit_action"
+  end
 end

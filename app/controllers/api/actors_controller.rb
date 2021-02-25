@@ -9,4 +9,10 @@ class Api::ActorsController < ApplicationController
     @actor = "#{actor.first_name} #{actor.last_name} is known for the movie #{actor.known_for}."
     render "colin.json.jb"
   end
+
+  # def kermit_action
+  #   actor = Actor.find(6)
+  #   @actor = "#{actor.first_name} #{actor.last_name} is known for the movie #{actor.known_for}."
+  #   render "kermit.html.erb"
+  # end
 end

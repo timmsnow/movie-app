@@ -8,4 +8,5 @@
 # actor = Actor.new({ first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock" })
 # actor.save
 
-actor = Actor.create({ first_name: "Colin", last_name: "Farrel", known_for: "In Bruges" })
+# actor = Actor.create({ first_name: "Colin", last_name: "Farrel", known_for: "In Bruges" })
+actor = Actor.create({ first_name: "Kermit", last_name: "the Frog", known_for: "Muppet Babies" })
