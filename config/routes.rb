@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   namespace :api do
     get "/kermit_path" => "actors#kermit_action"
   end
+
+  namespace :api do
+    get "/all_movies_path" => "movies#all_movies_action"
+  end
 end
