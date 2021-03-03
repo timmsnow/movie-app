@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     get "/movies/:id" => "movies#show"
     patch "/movies/:id" => "movies#update"
     delete "/movies/:id" => "movies#destroy"
-    # get "/one_movie_path" => "movies#one_movie_action"
-    # get "/all_movies_path" => "movies#all_movies_action"
-    # get "/colin_path" => "actors#colin_action"
-    # get "/colin_query_path" => "actors#colin_query_action"
-    # get "/colin_query/:actor" => "actors#colin_query_action"
-    # post "/colin_post_path" => "actors#colin_post_action"
+    get "/actors" => "actors#index"
+    post "/actors" => "actors#create"
+    get "/actors/:id" => "actors#show"
+    patch "/actors/:id" => "actors#update"
+    delete "/actors/:id" => "actors#destroy"
   end
 end

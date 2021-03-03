@@ -1,3 +1,0 @@
-{
-  actor: "#{@actor.first_name} #{@actor.last_name}",
-}
