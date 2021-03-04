@@ -11,8 +11,12 @@ class Api::MoviesController < ApplicationController
       plot: params[:plot],
       director: params[:director],
     )
-    @movie.save
-    render "show.json.jb"
+    #happy/sad path
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { error: @actor.errors.full_messages }, status: 400
+    end
   end
 
   def show
@@ -29,8 +33,12 @@ class Api::MoviesController < ApplicationController
     @movie.plot = params[:plot] || @movie.plot
     @movie.director = params[:director] || @movie.director
     @movie.english = params[:english] || @movie.english
-    @movie.save
-    render "show.json.jb"
+    #happy/sad path
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { error: @actor.errors.full_messages }, status: 400
+    end
   end
 
   def destroy

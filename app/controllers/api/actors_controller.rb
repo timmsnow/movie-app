@@ -12,8 +12,12 @@ class Api::ActorsController < ApplicationController
       gender: params[:gender],
       known_for: params[:known_for],
     )
-    @actor.save
-    render "show.json.jb"
+    #happy/sad path
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { error: @actor.errors.full_messages }, status: 400
+    end
   end
 
   def show
@@ -30,8 +34,12 @@ class Api::ActorsController < ApplicationController
     @actor.age = params[:age] || @actor.age
     @actor.gender = params[:gender] || @actor.gender
     @actor.known_for = params[:known_for] || @actor.known_for
-    @actor.save
-    render "show.json.jb"
+    #happy/sad path
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { error: @actor.errors.full_messages }, status: 400
+    end
   end
 
   def destroy
