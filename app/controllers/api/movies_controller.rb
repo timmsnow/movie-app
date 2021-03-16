@@ -14,10 +14,10 @@ class Api::MoviesController < ApplicationController
       director: params[:director],
     )
     #happy/sad path
-    if @actor.save
+    if @movie.save
       render "show.json.jb"
     else
-      render json: { error: @actor.errors.full_messages }, status: 400
+      render json: { error: @movie.errors.full_messages }, status: 400
     end
   end
 
