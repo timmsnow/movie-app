@@ -1,5 +1,5 @@
 class Api::MoviesController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+  # before_action :authenticate_admin, except: [:index, :show, :create, :update]
 
   def index
     @movies = Movie.where(english: :true)
@@ -28,8 +28,7 @@ class Api::MoviesController < ApplicationController
   end
 
   def update
-    movie_id = params[:id]
-    @movie = Movie.find(movie_id)
+    @movie = Movie.find(params[:id])
     @movie.title = params[:title] || @movie.title
     @movie.year = params[:year] || @movie.year
     @movie.plot = params[:plot] || @movie.plot
