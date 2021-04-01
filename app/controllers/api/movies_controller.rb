@@ -1,8 +1,10 @@
 class Api::MoviesController < ApplicationController
   # before_action :authenticate_admin, except: [:index, :show, :create, :update]
+  before_action :authenticate_user
 
   def index
-    @movies = Movie.where(english: :true)
+    # @movies = Movie.where(english: :true)
+    @movies = Movie.all
     render "index.json.jb"
   end
 
@@ -22,8 +24,8 @@ class Api::MoviesController < ApplicationController
   end
 
   def show
-    movie_id = params[:id]
-    @movie = Movie.find(movie_id)
+    # movie_id = params[:id]
+    @movie = Movie.find(params[:id])
     render "show.json.jb"
   end
 
@@ -35,7 +37,7 @@ class Api::MoviesController < ApplicationController
     @movie.director = params[:director] || @movie.director
     @movie.english = params[:english] || @movie.english
     #happy/sad path
-    if @actor.save
+    if @movie.save
       render "show.json.jb"
     else
       render json: { error: @actor.errors.full_messages }, status: 400
